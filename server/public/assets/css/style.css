@@ -1,0 +1,162 @@
+:root {
+  --logo-font: Georgia, Times, Times New Roman, serif; ;
+  --header-font: Georgia, Times, Times New Roman, serif; ;
+  --core-font: Arial, Helvetica, sans-serif;
+  
+  --primary: #ffffff;
+  --secondary: #2a3747;
+  
+  --highlight: #fa4141;
+  
+  --ui-shawdow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 5px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.08);
+  fill: rgba(0, 0, 0, 0.54);
+  --ui-shawdow-border: 1px solid rgba(0, 0, 0, 0.14);
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+/* Fixes input elements to have border-box great for percentages */
+* , *:before , *:after {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	box-sizing: border-box;
+}
+
+/* Remove annoying dotted outline on links and form elements */
+* {
+	outline: 0;
+}
+
+/* IE 10 Overrides */
+/* Removes annoying x on inputs */
+*::-ms-clear {
+	display: none;
+}
+
+/* Browser Form overwrites */
+input, textarea {
+	-webkit-appearance: none;
+	appearance: none;
+}
+select {
+	border-radius: 0;
+}
+
+textarea {
+	resize: none;
+}
+
+input[type=submit] {
+	cursor: pointer;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #fafafa inset !important;
+}
+
+/* Mobile Overrides */
+/* remove ugly highlight color */
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: #E0E0E0;
+  -ms-overflow-style: scrollbar !important;
+}
+
+dl, h1, h2, h3, h4, h5, h6, ol, p, ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+.view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  background-size: cover;
+  font-family: var(--core-font);
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 1em 0;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+  padding: 15px;
+  font-family: var(--logo-font);
+  border-bottom: var(--ui-shawdow-border);
+  box-shadow: var(--ui-shawdow);
+}
+
+.message {
+  background: white;
+  padding: 30px;
+  border-bottom: var(--ui-shawdow-border);
+  box-shadow: var(--ui-shawdow);
+}
+
+.message__title {
+  padding-bottom: 20px;
+}
+
+.message__details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5em;
+}
+
+.nav-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+}
+
+.nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  width: 150px;
+  background: var(--highlight);
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-transform: capitalize;
+  border-bottom: var(--ui-shawdow-border);
+  box-shadow: var(--ui-shawdow);
+}
+
+.welcome-view {
+  background: url("https://images.unsplash.com/photo-1539495090708-ac6b6e8f4189?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80") left bottom;
+  background-size: cover;
+}
+
+.user-view {
+  background: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80") left bottom;
+  background-size: cover;
+}

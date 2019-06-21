@@ -1,0 +1,13 @@
+extends layout
+
+block layout-content
+  div.view.user-view
+    h1.banner Howdy, #{userProfile.nickname}!
+    div.message
+      div.message__title
+        h3 Making Us the Best
+        h1 Teammate Profile
+      pre.message__details=JSON.stringify(userProfile, null, 2)
+    div.nav-buttons
+      a(href="/logout")
+        div.nav-button Log out

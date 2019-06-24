@@ -9,4 +9,11 @@ router.get('/', (req, res) => {
         .catch(error => error)
 })
 
+router.get('/:id', (req, res) => {
+    Note
+        .find({ _id: req.params.id})
+        .then(docs => res.json(docs))
+        .catch(error => error)
+})
+
 module.exports = router;

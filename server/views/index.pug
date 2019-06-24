@@ -3,13 +3,23 @@ extends layout
 block layout-content
   div
     h1 Ut enim
+    ul
+      for note in notes
+        li= note.description
   script.
     (async () => {
-      fetch('/api/notes')
+      /*fetch('/api/notes')
         .then(function(response) {
           return response.json();
         })
         .then(function(myJson) {
           console.log(JSON.stringify(myJson));
+        });*/
+      fetch('/api/notes/5b541a4d89f92328ee487967')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(myJson2) {
+          console.log(JSON.stringify(myJson2));
         });
     })();

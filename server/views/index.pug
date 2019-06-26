@@ -1,25 +1,66 @@
 extends layout
 
 block layout-content
-  div
-    h1 Ut enim
-    ul
+  main.content
+    h1.header Notes
+    a(href='/create-note').create-note Add Note
+    ul.notes(id='notes')
       for note in notes
-        li= note.description
+        li.notes__item 
+          a(data-note-id= note._id).note
+            h2.note__title= note.title  
+            p.note__description= note.description
+  div.modal#modal
+    div.loader#loader loading...
+    div.modal__content#modalContent
+
   script.
     (async () => {
-      /*fetch('/api/notes')
+      var 
+        notes = document.getElementById('notes'),
+        modal = document.getElementById('modal'),
+        modalContent = document.getElementById('modalContent'),
+        loader = document.getElementById('loader'),
+        title, description, closing, closingSpan
+
+      notes.addEventListener('click', function(event){
+        modal.classList.add('is-visible')
+        loader.classList.add('is-visible')
+
+        fetch(`/api/notes/${event.target.dataset.noteId}`)
         .then(function(response) {
-          return response.json();
+          return response.json()
         })
-        .then(function(myJson) {
-          console.log(JSON.stringify(myJson));
-        });*/
-      fetch('/api/notes/5b541a4d89f92328ee487967')
-        .then(function(response) {
-          return response.json();
+        .then(function(myJson2) { 
+          title = document.createElement('h2')
+          description = document.createElement('p')
+          closing = document.createElement('a')
+          closingSpan = document.createElement('span')
+
+          title.innerText = myJson2[0].title
+          title.classList.add('modal__title')
+
+          description.innerText = myJson2[0].description
+          description.classList.add('modal__description')
+
+          closing.classList.add('modal__closing')
+          closing.setAttribute('id', 'modalClosing')
+          closing.setAttribute('href', 'javascript:void(0);')
+          closing.appendChild(closingSpan)
+
+          loader.classList.remove('is-visible')
+          modalContent.appendChild(title)
+          modalContent.appendChild(description)
+          modalContent.appendChild(closing)
         })
-        .then(function(myJson2) {
-          console.log(JSON.stringify(myJson2));
-        });
+      })
+
+      // Attach event to dynamic elements in javascript
+      // JQuery .on() to Javascript Vanilla
+      document.addEventListener('click', function(event){
+        if(event.target && event.target.id == 'modalClosing') {
+          modal.classList.remove('is-visible')
+          modalContent.innerHTML = ''
+        }
+      })
     })();

@@ -131,6 +131,7 @@ ul, ol {
   display: inline-block;
   user-select: none;
   cursor: pointer;
+  max-width: 500px;
 }
 
 .note:before, 
@@ -152,15 +153,74 @@ ul, ol {
   transform: rotate(-1deg);
 }
 
+.note__form-group {
+  padding: 0 0 1.5em;
+}
+
+.note__form-error {
+  color: #C21A01;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 0 0;
+  display: block;
+}
+
 .note__title {
   font-size: 20px;
   padding: 0 0 .5em;
   pointer-events: none;
 }
 
+.note__title-input {
+  display: inline-block;
+  background: transparent;
+  padding: .5em 1em 0;
+  border: none;
+  border-radius: 0px;
+  border-bottom: #333 dotted 0.2em;
+  color: #333;
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+}
+
 .note__description {
   font-size: 16px;  
   pointer-events: none;
+}
+
+.note__title-description {
+  display: inline-block;
+  background: transparent;
+  padding: .5em 1em;
+  border-radius: 0px;
+  color: #333;
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+  border: #333 dotted 0.2em;
+  height: 220px;
+  width: 100%;
+}
+
+.note__submit {
+  padding: 0 50px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 1px;
+  background-color: #2196f3;
+  border: none;
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+  margin: 10px 0;
+  display: inline-block;
+  line-height: 50px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  transition: 0.3s ease;
 }
 
 .modal {

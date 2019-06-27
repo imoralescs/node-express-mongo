@@ -17,8 +17,8 @@ const notes = require('./routes/api/notes')
 
 //-- Middleware
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 //-- View
 app.set('views', path.join(__dirname, 'views'))

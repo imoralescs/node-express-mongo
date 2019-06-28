@@ -2,17 +2,17 @@ const express = require('express')
 const router = express.Router()
 const Note = require('../../models/Note')
 
-router.get('/', (req, res) => {
+router.get('/', (request, response) => {
     Note
         .find({})
-        .then(docs => res.json(docs))
+        .then(docs => response.json(docs))
         .catch(error => error)
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', (request, response) => {
     Note
-        .find({ _id: req.params.id})
-        .then(docs => res.json(docs))
+        .find({ _id: request.params.id})
+        .then(docs => response.json(docs))
         .catch(error => error)
 })
 

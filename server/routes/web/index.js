@@ -8,7 +8,7 @@ const Note = require('../../models/Note')
 const validateNoteInput = require('../../validation/note')
 
 // @route GET /
-// @description Home
+// @description Home Page
 // @access Public
 router.get('/', (request, response) => {
     Note
@@ -24,7 +24,7 @@ router.get('/', (request, response) => {
 })
 
 // @route GET /
-// @description Home
+// @description Create Note Form
 // @access Public
 router.get('/create-note', (request, response) => {
     response
@@ -33,8 +33,10 @@ router.get('/create-note', (request, response) => {
         })   
 })
 
+// @route GET /
+// @description Create Note Submit
+// @access Public
 router.post('/create-note', (request, response) => {
-
     const { errors, isValid } = validateNoteInput(request.body)
     
     if(!isValid) {
@@ -45,7 +47,15 @@ router.post('/create-note', (request, response) => {
             })
     }
 
-    console.log(errors)
+    const newNote = new Note({
+        title: request.body.title,
+        description: request.body.description
+    })
+
+    newNote
+        .save()
+    
+    response.redirect('/')
 })
 
 module.exports = router;

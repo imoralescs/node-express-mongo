@@ -177,12 +177,15 @@ ul, ol {
   padding: .5em 1em 0;
   border: none;
   border-radius: 0px;
-  border-bottom: #333 dotted 0.2em;
   color: #333;
   outline: none;
   font-size: 20px;
   font-weight: 600;
   width: 100%;
+}
+
+.note__title-input:focus {
+  border-bottom: #333 dotted 0.2em;
 }
 
 .note__description {
@@ -199,9 +202,14 @@ ul, ol {
   outline: none;
   font-size: 20px;
   font-weight: 600;
-  border: #333 dotted 0.2em;
   height: 220px;
   width: 100%;
+  border-style: none; 
+  border-color: Transparent;      
+}
+
+.note__title-description:focus {
+  border: #333 dotted 0.2em;
 }
 
 .note__submit {

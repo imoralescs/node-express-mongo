@@ -3,10 +3,11 @@ extends layout
 block layout-content
   main.content
     h1.header Create Note
+    a(href='/').create-note Back to home
     div
       form(action='/create-note' method='post').note
         div.note__form-group
-          input(type='text' name='title' placeholder='Title').note__title-input
+          input(type='text' name='title' placeholder='Title' autocomplete='off').note__title-input
           span.note__form-error= titleError
         div.note__form-group
           textarea(name='description' placeholder='Description').note__title-description

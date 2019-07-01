@@ -260,20 +260,24 @@ ul, ol {
   background-color: #FFF;
 }
 
-.modal__closing {
+.modal__closing,
+.note__delete {
   position: absolute;
   top: 10px;
-  z-index: 2;
+  z-index: 0;
   right: 10px;
   padding: 10px;
 }
 
-.modal__closing > span {
+.modal__closing > span,
+.note__delete > span {
   pointer-events: none;
 }
 
 .modal__closing > span:before,
-.modal__closing > span:after {
+.modal__closing > span:after,
+.note__delete > span:before,
+.note__delete > span:after {
   content: "";
   position: absolute;
   width: 100%;
@@ -284,11 +288,13 @@ ul, ol {
   background: #333;
 }
 
-.modal__closing > span:before {
+.modal__closing > span:before,
+.note__delete > span:before {
   transform: rotate(45deg);
 }
 
-.modal__closing > span:after {
+.modal__closing > span:after,
+.note__delete > span:after {
   transform: rotate(-45deg);
 }
 

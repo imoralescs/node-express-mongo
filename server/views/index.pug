@@ -8,6 +8,8 @@ block layout-content
       for note in notes
         li.notes__item 
           a(data-note-id= note._id).note
+            span.note__delete
+              span
             h2.note__title= note.title  
             p.note__description= note.description
   div.modal#modal
@@ -18,10 +20,35 @@ block layout-content
     (async () => {
       var 
         notes = document.getElementById('notes'),
+        noteDelete = document.querySelectorAll('.note__delete'),
         modal = document.getElementById('modal'),
         modalContent = document.getElementById('modalContent'),
         loader = document.getElementById('loader'),
         title, description, closing, closingSpan
+
+      // Adding event action to each delete note icon
+      for(var i = 0; i < noteDelete.length; i++) {
+        noteDelete[i].addEventListener('click', function(event){
+          // Avoid click on parent element
+          event.stopPropagation()
+          console.log('here')
+          modal.classList.add('is-visible')
+          title = document.createElement('h2')
+          closing = document.createElement('a')
+          closingSpan = document.createElement('span')
+
+          title.innerText = 'Permanently delete your note? You cant undo this'
+          title.classList.add('modal__title')
+
+          closing.classList.add('modal__closing')
+          closing.setAttribute('id', 'modalClosing')
+          closing.setAttribute('href', 'javascript:void(0);')
+          closing.appendChild(closingSpan)
+
+          modalContent.appendChild(title)
+          modalContent.appendChild(closing)
+        })
+      }
 
       notes.addEventListener('click', function(event){
         modal.classList.add('is-visible')
